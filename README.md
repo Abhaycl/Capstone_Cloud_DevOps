@@ -122,11 +122,33 @@ Once you have completed your Continuous Integration you will set up Continuous D
 5. Configure the connection to the instance created in EC2. [According to the manual connection with the EC2 instance](https://github.com/Abhaycl/Capstone_Cloud_DevOps/tree/main/documents/EC2Connect/README.md)
 6. Install and configure the Jenkins application with all the necessary plugins among them (Blue Ocean). [According to the manual configure Jenkins application](https://github.com/Abhaycl/Capstone_Cloud_DevOps/tree/main/documents/Jenkins/README.md)
 
+### Necessary Software
+
+- Git
+- Java
+- Jenkins
+- Docker
+- Tidy
+- Hadolint
+- Unzip
+- Awscli
+- Kubectl
+- Eksctl
+
 ## Steps I have followed to complete the project
 
-![alt text][image00]
-<p align="center">
-    <img src ="./images/capstone_project_00.jpg" />
-</p>
-```sudo systemctl status jenkins```
+For installing all necessary software we have created the file install_software.sh which we copy to our EC2 instance and run it as:
 
+```./install_software.sh```
+
+![alt text][image00]
+
+This file will create a series of necessary folders of the different installations and an install.log file.
+
+<p align="center">
+    <img src ="./images/capstone_project_01.jpg" />
+</p>
+
+The file described above will indicate the version of the installed software, if any reference is missing, it will indicate that something is wrong.
+
+![alt text][image02]
