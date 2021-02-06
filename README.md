@@ -58,8 +58,6 @@ The summary of the files and folders within repo is provided in the table below:
 
 ---
 
-**Steps to complete the project:**
-
 ### Project Specifications
 
 In this project you will apply the skills and knowledge which were developed throughout the Cloud DevOps Nanodegree program. These include:
@@ -115,7 +113,16 @@ Once you have completed your Continuous Integration you will set up Continuous D
 - Verify that your pipeline works as you designed it.
 - Take a screenshot of the Circle CI or Jenkins pipeline showing deployment, and a screenshot of your AWS EC2 page showing the newly created (for blue/green) or modified (for rolling) instances. Make sure you name your instances differently between blue and green deployments.
 
-#### Steps I followed to complete the project
+## Prerequisite
+
+1. Have an account on Github with the project folder created.
+2. Have an account on AWS for the IAM, for the EC2 instance and for the EKS cluster.
+3. Have a Docker account to use the hub.
+4. Create an EC2 instance. [According to the EC2 instance creation manual](https://github.com/Abhaycl/Capstone_Cloud_DevOps/documents/EC2Creation/README.md)
+5. Configure the connection to the instance created in EC2. [According to the manual connection with the EC2 instance](https://github.com/Abhaycl/Capstone_Cloud_DevOps/documents/EC2Connect/README.md)
+6. Install and configure the Jenkins application with all the necessary plugins among them (Blue Ocean). [According to the manual configure Jenkins application](https://github.com/Abhaycl/Capstone_Cloud_DevOps/documents/Jenkins/README.md)
+
+## Steps I have followed to complete the project
 
 ![alt text][image00]
 <p align="center">
