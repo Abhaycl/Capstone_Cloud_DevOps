@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'echo Checkout code from source control...'
                 checkout scm
-				sh 'printenv'
+                sh 'printenv'
             }
         }
         stage('Check Environment') {
