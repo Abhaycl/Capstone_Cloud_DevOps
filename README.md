@@ -179,24 +179,23 @@ I have created a series of separate manuals of all the steps I have followed to 
 
 ---
 
+### Step 1: Propose and Scope the Project
 
-**Step 1:** Propose and Scope the Project
-
-- *Plan what your pipeline will look like.*
+**Plan what your pipeline will look like.**
 
 In the design of our pipeline, I show a clear labelling, so that it is easily recognisable, which tasks belong to a continuous integration and which other parts belong to a continuous deployment, leaving a final task to the choice of the deploying user for balancing, so that we can see what happens in our AWS Kubernetes (EKS cluster) which we use as a service.
 
 ![alt text][image00]
 
-- *Decide which options you will include in your Continuous Integration phase.*
+**Decide which options you will include in your Continuous Integration phase.**
 
  For the continuous integration part I have decided to integrate the checking of our repository (git), the checking of the versions of our applications used by our environment, the checking of the code of our application (lint) and the checking of the code that will generate our images (hadolint).
 
-- *Use Circle CI or Jenkins.*
+**Use Circle CI or Jenkins.**
 
 I have decided to use Jenkins software as my automation server, which is installed and configured on an EC2 instance of AWS.
 
-- *Pick a deployment type - either rolling deployment or blue/green deployment.*
+**Pick a deployment type - either rolling deployment or blue/green deployment.**
 
 For the type of deployment I have decided to implement a blue/green type of deployment because enables deploying new code to environments while keeping the existing environment up until the new environment is ready. This is important for providing a consistently working environment to the end users of the code/website. In addition, it allows us to independently test the new environment before putting it in front of the end user. To accomplish blue green deployment it requires setting up this identical environment, switching the load balancer, and verifying that the code base has changed through the website.
 
@@ -206,21 +205,20 @@ For the type of deployment I have decided to implement a blue/green type of depl
 
 For my project I will redirect the traffic from my blue container to my green container.
 
-- *For the Docker application you can either use an application which you come up with, or use an open-source application pulled from the Internet, or if you have no idea, you can use an Nginx “Hello World, my name is (student name)” application.*
+**For the Docker application you can either use an application which you come up with, or use an open-source application pulled from the Internet, or if you have no idea, you can use an Nginx “Hello World, my name is (student name)” application.**
 
 I'm going to use Nginx as my container application, because that's where my website will be hosted (index.html and background.jpg files). 
 
 
 ---
 
+### Step 2: Use Jenkins or Circle CI, and implement blue/green or rolling deployment.
 
-**Step 2:** Use Jenkins or Circle CI, and implement blue/green or rolling deployment.
-
-- *If you're using Jenkins, create your Jenkins master box and install the plugins you will need. If you're using Circle CI, set up your circle CI account and connect your git repository.*
+**If you're using Jenkins, create your Jenkins master box and install the plugins you will need. If you're using Circle CI, set up your circle CI account and connect your git repository.**
 
 In the following link we describe the tasks carried out to complete each of the sections of this step. [Instalation and configure Jenkins application](https://github.com/Abhaycl/Capstone_Cloud_DevOps/tree/main/documents/Jenkins/README.md)
 
-- *Set up your environment to which you will deploy code.*
+**Set up your environment to which you will deploy code.**
 
 We create a Docker .account to use the hub where we can see our uploaded images.
 
@@ -231,10 +229,9 @@ In the file ```Jenkinsfile``` is all the coding of the steps to execute in our p
 
 ---
 
+### Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
 
-**Step 3:** Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
-
-- *Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.*
+**Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.**
 
 I used CloudFormation with a template to create the EKS cluster but to automate the task in an independent pipeline it was better to create shell script files, one to create the cluster (file ```eks_cluster_create.sh```) and one to delete the cluster (file ```eks_cluster_delete.sh```).
 
@@ -256,11 +253,11 @@ We can also use config file ```eks_cluster_create.yaml``` instead of flags to cr
     eksctl create cluster -f eks_cluster_create.yaml
 ```
 
-- *It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.*
+**It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.**
 
 Not applicable, because in my case I used the docker hub to contain the images.
 
-- *As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.*
+**As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.**
 
 For a better overview and control of things happening with the creation and deletion of the cluster, I decided to create and delete it manually by executing the above mentioned shell script files. Although as I indicated they can be included in a separate pipeline.
 
@@ -291,10 +288,9 @@ From our EC2 instance to delete our EKS cluster, we run the following script:
 
 ---
 
+### Step 4: Build your pipeline
 
-**Step 4:** Build your pipeline
-
-- *Construct your pipeline in your GitHub repository.*
+**Construct your pipeline in your GitHub repository.**
 
 Location of our repository for this project. [Gitub](https://github.com/Abhaycl/Capstone_Cloud_DevOps)
 
@@ -302,7 +298,7 @@ In the root of our repository we have the ```Jenkinsfile``` with all the instruc
 
 * [Jenkinsfile](https://github.com/Abhaycl/Capstone_Cloud_DevOps/blob/main/Jenkinsfile)
 
-- *Set up all the steps that your pipeline will include.*
+**Set up all the steps that your pipeline will include.**
 
 The stages of our pipeline are:
 
@@ -367,7 +363,7 @@ Pipelines executed.
 
 ![alt text][image27]
 
-- *Configure a deployment pipeline.*
+**Configure a deployment pipeline.**
 
 For the implementation of the deployment of the blue and green branches, we have created the files:
 
@@ -378,14 +374,14 @@ For the implementation of the deployment of the blue and green branches, we have
 
 These files contain all the necessary configurations for the deployment of the blue and green branches in our EKS cluster as a service.
 
-- *Include your Dockerfile/source code in the Git repository.*
+**Include your Dockerfile/source code in the Git repository.**
 
 Our Dockerfile files are located in our repository, in the corresponding blue and green branch folders.
 
 * [capstoneblue/Dockerfile](https://github.com/Abhaycl/Capstone_Cloud_DevOps/blob/main/capstoneblue/Dockerfile)
 * [capstonegreen/Dockerfile](https://github.com/Abhaycl/Capstone_Cloud_DevOps/blob/main/capstonegreen/Dockerfile)
 
-- *Include with your Linting step both a failed Linting screenshot and a successful Linting screenshot to show the Linter working properly.*
+**Include with your Linting step both a failed Linting screenshot and a successful Linting screenshot to show the Linter working properly.**
 
 We create a situation where our code fails when checked with lint.
 
@@ -399,17 +395,16 @@ We correct our code and relaunch the pipeline to recheck with lint that everythi
 
 ---
 
+### Step 5: Test your pipeline
 
-**Step 5:** Test your pipeline
-
-- *Perform builds on your pipeline.*
+**Perform builds on your pipeline.**
 
 We check that they are build correctly.
 
 ![alt text][image16]
 ![alt text][image17]
 
-- *Verify that your pipeline works as you designed it.*
+**Verify that your pipeline works as you designed it.**
 
 We check that all the tasks of each step in our pipeline are performed correctly as I expected.
 
@@ -418,7 +413,7 @@ We check that all the tasks of each step in our pipeline are performed correctly
 ![alt text][image32]
 ![alt text][image33]
 
-- *Take a screenshot of the Circle CI or Jenkins pipeline showing deployment, and a screenshot of your AWS EC2 page showing the newly created (for blue/green) or modified (for rolling) instances. Make sure you name your instances differently between blue and green deployments.*
+**Take a screenshot of the Circle CI or Jenkins pipeline showing deployment, and a screenshot of your AWS EC2 page showing the newly created (for blue/green) or modified (for rolling) instances. Make sure you name your instances differently between blue and green deployments.**
 
 The following images show our pods, nodes, services, controllers.
 
@@ -488,53 +483,87 @@ To start jenkins application services.
 ```
 
 To restart the jenkins application services.
-```sudo systemctl restart Jenkins```
+```
+    sudo systemctl restart Jenkins
+```
 
 To find out the status of the docker application services.
-```sudo service status docker```
+```
+    sudo service status docker
+```
 
 To stop docker application services.
-```sudo service stop docker```
+```
+    sudo service stop docker
+```
 
 To start the docker application services.
-```sudo service start docker```
+```
+    sudo service start docker
+```
 
 To restart the jenkins application services.
-```sudo service restart docker```
+```
+    sudo service restart docker
+```
 
 Shows all images.
-```docker images -a```
+```
+    docker images -a
+```
 
 Shows all containers .
-```docker ps -a```
+```
+    docker ps -a
+```
 
 Delete all containers.
-```docker rm $(docker ps -aq)```
+```
+    docker rm $(docker ps -aq)
+```
 
 Delete all images.
-```docker rmi $(docker images -aq)```
+```
+    docker rmi $(docker images -aq)
+```
 
 List all services.
-```kubectl get svc```
+```
+    kubectl get svc
+```
 
 List all nodes.
-```kubectl get nodes```
+```
+    kubectl get nodes
+```
 
 List all deployments.
-```kubectl get deployments```
+```
+    kubectl get deployments
+```
 
 List all pods.
-```kubectl get pods```
+```
+    kubectl get pods
+```
 
 Show detailed information about a specific pod.
-```kubectl describe pod blue-8jhhr```
-```kubectl describe pod green-b8x5q```
+```
+    kubectl describe pod blue-8jhhr
+    kubectl describe pod green-b8x5q
+```
 
 List all clusters.
-```eksctl get clusters```
+```
+    eksctl get clusters
+```
 
 Describe CloudFormation stack for a given cluster.
-```eksctl utils describe-stacks --region=us-west-2 --cluster=capstone```
+```
+    eksctl utils describe-stacks --region=us-west-2 --cluster=capstone
+```
 
 Program to send ICMP echo probes to network hosts,
-```fping a3afce1808b8c4ea4bcc7b19583efb4f-1755198212.us-west-2.elb.amazonaws.com```
+```
+    fping a3afce1808b8c4ea4bcc7b19583efb4f-1755198212.us-west-2.elb.amazonaws.com
+```
