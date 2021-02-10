@@ -207,7 +207,7 @@ For my project I will redirect the traffic from my blue container to my green co
 
 > ***For the Docker application you can either use an application which you come up with, or use an open-source application pulled from the Internet, or if you have no idea, you can use an Nginx “Hello World, my name is (student name)” application.***
 
-I'm going to use Nginx as my container application, because that's where my website will be hosted (index.html and background.jpg files). 
+I'm going to use Nginx as my container application, because that's where my website will be hosted (```index.html``` and ```background.jpg``` files). 
 
 
 ---
