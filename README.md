@@ -473,13 +473,19 @@ This allows us to obtain a real-time summary of the metrics of multiple containe
 During the development of the project I encountered several configuration or parameterisation problems. The following commands were very useful to understand and solve the problems.
 
 To know the status of the services of the jenkins application.
-```sudo systemctl status jenkins```
+```
+    sudo systemctl status jenkins
+```
 
 To stop jenkins application services.
-```sudo systemctl stop jenkins```
+```
+    sudo systemctl stop jenkins
+```
 
 To start jenkins application services.
-```sudo systemctl start jenkins```
+```
+    sudo systemctl start jenkins
+```
 
 To restart the jenkins application services.
 ```sudo systemctl restart Jenkins```
