@@ -1,0 +1,1 @@
+eksctl create cluster --version=1.18 --name=capstone --region=us-west-2 --nodegroup-name=workers --node-type=t2.micro --node-ami=auto --nodes=3 --nodes-min=1 --nodes-max=4
