@@ -53,7 +53,7 @@ Connect to our instance using its public DNS, as
 The successful login will show us a prompt as shown in the snapshot below:
 
 <p align="center">
-    <img src ="./images/EC2Connect4.jpg" />
+    <img src ="./images/EC2Connect10.jpg" />
 </p>
 
 Successful login using SSH. Notice the private IPv4 address at the prompt is ```172.31.23.177``` only for the case of the image above, this IP address is obtained from the EC2 instance dashboard.
@@ -97,7 +97,7 @@ Windows users can log in using PuTTY utility. The following are the steps:
 In our case we use the WinSCP windows application to connect to our EC2 instance which we configure as shown in the image below with our address: ```ec2-34-221-80-14.us-west-2.compute.amazonaws.com``` or ```34.221.80.14```
 
 <p align="center">
-    <img src ="./images/EC2Connect9.jpg" />
+    <img src ="./images/EC2Connect9.jpg" /><br>
+	<img src ="./images/EC2Connect4.jpg" />
 	<img src ="./images/EC2Connect10.jpg" />
-	<img src ="./images/EC2Connect11.jpg" />
 </p>
