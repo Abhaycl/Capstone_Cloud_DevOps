@@ -181,21 +181,21 @@ I have created a series of separate manuals of all the steps I have followed to 
 
 ### Step 1: Propose and Scope the Project
 
-***Plan what your pipeline will look like.***
+> ***Plan what your pipeline will look like.***
 
 In the design of our pipeline, I show a clear labelling, so that it is easily recognisable, which tasks belong to a continuous integration and which other parts belong to a continuous deployment, leaving a final task to the choice of the deploying user for balancing, so that we can see what happens in our AWS Kubernetes (EKS cluster) which we use as a service.
 
 ![alt text][image00]
 
-***Decide which options you will include in your Continuous Integration phase.***
+> ***Decide which options you will include in your Continuous Integration phase.***
 
  For the continuous integration part I have decided to integrate the checking of our repository (git), the checking of the versions of our applications used by our environment, the checking of the code of our application (lint) and the checking of the code that will generate our images (hadolint).
 
-***Use Circle CI or Jenkins.***
+> ***Use Circle CI or Jenkins.***
 
 I have decided to use Jenkins software as my automation server, which is installed and configured on an EC2 instance of AWS.
 
-***Pick a deployment type - either rolling deployment or blue/green deployment._***
+> ***Pick a deployment type - either rolling deployment or blue/green deployment._***
 
 For the type of deployment I have decided to implement a blue/green type of deployment because enables deploying new code to environments while keeping the existing environment up until the new environment is ready. This is important for providing a consistently working environment to the end users of the code/website. In addition, it allows us to independently test the new environment before putting it in front of the end user. To accomplish blue green deployment it requires setting up this identical environment, switching the load balancer, and verifying that the code base has changed through the website.
 
