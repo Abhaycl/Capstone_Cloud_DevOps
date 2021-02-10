@@ -53,10 +53,10 @@ Connect to our instance using its public DNS, as
 The successful login will show us a prompt as shown in the snapshot below:
 
 <p align="center">
-    <img src ="./images/EC2Connect10.jpg" />
+    <img src ="./images/EC2Connect4.jpg" />
 </p>
 
-Successful login using SSH. Notice the private IPv4 address at the prompt is ```172.31.23.177``` only for the case of the image above, this IP address is obtained from the EC2 instance dashboard.
+Successful login using SSH. Notice the private IPv4 address at the prompt is ```172.31.42.205``` only for the case of the image above, this IP address is obtained from the EC2 instance dashboard.
 
 ### Windows users
 
