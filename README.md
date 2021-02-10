@@ -220,7 +220,7 @@ In the following link we describe the tasks carried out to complete each of the 
 
 > ***Set up your environment to which you will deploy code.***
 
-We create a Docker .account to use the hub where we can see our uploaded images.
+We create a Docker account to use the hub where we can see our uploaded images.
 
 ![alt text][image05]
 
